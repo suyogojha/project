@@ -1,0 +1,231 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+  crossorigin="anonymous"
+/>
+
+
+{% extends 'base.html' %} {% load static %}   {% block Team %}
+
+
+
+
+
+<body class="blog-post">
+
+    <header class="header" id="navbar-collapse-toggle">
+        <ul
+        class="
+          icon-menu
+          d-none d-lg-block
+          revealator-slideup revealator-once revealator-delay1
+        "
+      >
+        <li class="icon-box">
+          <i class="fa fa-home"></i>
+          <a href="{% url 'home:home' %}">
+            <h2>Home</h2>
+          </a>
+        </li>
+        <li class="icon-box ">
+          <i class="fa fa-user"></i>
+          <a href="{% url 'home:about' %}">
+            <h2>About</h2>
+          </a>
+        </li>
+        <li class="icon-box">
+          <i class="fa fa-briefcase"></i>
+          <a href="{% url 'home:portfolio' %}">
+            <h2>Portfolio</h2>
+          </a>
+        </li>
+        <li class="icon-box">
+          <i class="fa fa-envelope-open"></i>
+          <a href="{% url 'home:contact_us' %}">
+            <h2>Contact</h2>
+          </a>
+        </li>
+        <li class="icon-box">
+          <i class="fa fa-comments"></i>
+          <a href="{% url 'home:blog' %}">
+            <h2>Blog</h2>
+          </a>
+        </li>
+        <li class="icon-box active">
+            <i class="fa fa-sliders"></i>
+            <a href="{% url 'home:Extra' %}">
+              <h2>Extra</h2>
+            </a>
+          </li>
+      </ul>
+      <!-- Mobile Menu Starts -->
+      <nav role="navigation" class="d-block d-lg-none">
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul class="list-unstyled" id="menu">
+            <li>
+              <a href="{% url 'home:home' %}"
+                ><i class="fa fa-home"></i><span>Home</span></a
+              >
+            </li>
+            <li >
+              <a href="{% url 'home:about' %}"
+                ><i class="fa fa-user"></i><span>About</span></a
+              >
+            </li>
+            <li>
+              <a href="{% url 'home:portfolio' %}"
+                ><i class="fa fa-folder-open"></i><span>Portfolio</span></a
+              >
+            </li>
+            <li>
+              <a href="{% url 'home:contact_us' %}"
+                ><i class="fa fa-envelope-open"></i><span>Contact</span></a
+              >
+            </li>
+            <li >
+              <a href="{% url 'home:blog' %}"
+                ><i class="fa fa-comments"></i><span>Blog</span></a
+              >
+            </li>
+            <li class="active">
+                <a href="{% url 'home:Extra' %}"
+                  ><i class="fa fa-sliders"></i><span>Extra</span></a
+                >
+              </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Mobile Menu Ends -->
+    
+    </header>
+<!-- Header Ends -->
+<!-- Page Title Starts -->
+<section class="title-section text-left text-sm-center revealator-slideup revealator-once revealator-delay1">
+    <h1>my <span> Team</span></h1>
+    <span class="title-bg">Team</span>
+</section>
+<!-- Page Title Ends -->
+<!-- Main Content Starts -->
+
+<style>
+  .our-team{
+    text-align: center;
+    position: relative;
+}
+.our-team img{
+    width: 80%;
+    height: auto;
+}
+.our-team .team-content{
+    width: 100%;
+    height: auto;
+    background: #cff138;
+    padding: 27px 0;
+    border-left: 5px solid #f01810;
+    box-shadow: 0 15px 25px 0 rgba(3,7,15,0.1);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: all 0.5s ease 0s;
+}
+.our-team:hover .team-content{
+    background: #9edf6a;
+}
+.our-team .title{
+    font-size: 20px;
+    font-weight: 700;
+    color: #0051ff;
+    text-transform: capitalize;
+    margin: 0;
+    transition: all 0.5s ease 0s;
+}
+.our-team:hover .title{
+    color: #eb0e19;
+    margin-bottom: 10px;
+}
+.our-team .post{
+    display: block;
+    font-size: 15px;
+    font-style: italic;
+    color: #4d46a5;
+    text-transform: capitalize;
+    height: 0;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s ease 0s;
+}
+.our-team:hover .post{
+    height: 40px;
+    opacity: 1;
+    transform: scale(1);
+}
+.our-team .social1{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(-60%);
+    transition: all 0.5s ease 0s;
+}
+.our-team:hover .social1{
+    transform: translateY(50%);
+    opacity: 1;
+}
+.our-team .social1 li{
+    display: inline-block;
+}
+.our-team .social1 li a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ecdfbd;
+    font-size: 17px;
+    font-weight: 700;
+    line-height:40px;
+    color: #5e3448;
+    transition: all 0.5s ease 0s;
+}
+.our-team .social1 li a:hover{
+    color: #ecdfbd;
+    background: #5e3448;
+}
+@media only screen and (max-width: 990px){
+    .our-team{ margin-bottom: 40px; }
+}
+</style>
+
+<section class="main-content revealator-slideup revealator-once revealator-delay1">            
+
+    <div class="container">
+        <div class="row">  
+        {% for i in data %}     
+        <div class="col-12 col-lg-6">
+        <div class="our-team">
+            <img src="{{ i.image.url }}">
+            <div class="team-content">
+                <h3 class="title">{{ i.name }}</h3>
+                <span class="post">{{ i.position }}</span>
+                <ul class="social1">
+                    <li><a href="{{i.fb_url}}" target="_blank"><i class="fa fa-facebook" style="margin-top: 10px;;"></i></a></li>
+                    <li><a  href="{{i.insta_url}}" target="_blank"><i class="fa fa-instagram" style="margin-top: 10px;;"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

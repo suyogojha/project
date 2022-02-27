@@ -1,0 +1,193 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+  crossorigin="anonymous"
+/>
+
+{% extends 'base.html' %} {% load static %} {% block myprojects %}
+
+<body class="blog-post">
+  <header class="header" id="navbar-collapse-toggle">
+    <ul
+      class="icon-menu d-none d-lg-block revealator-slideup revealator-once revealator-delay1"
+    >
+      <li class="icon-box">
+        <i class="fa fa-home"></i>
+        <a href="{% url 'home:home' %}">
+          <h2>Home</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-user"></i>
+        <a href="{% url 'home:about' %}">
+          <h2>About</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-briefcase"></i>
+        <a href="{% url 'home:portfolio' %}">
+          <h2>Portfolio</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-envelope-open"></i>
+        <a href="{% url 'home:contact_us' %}">
+          <h2>Contact</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-comments"></i>
+        <a href="{% url 'home:blog' %}">
+          <h2>Blog</h2>
+        </a>
+      </li>
+      <li class="icon-box active">
+        <i class="fa fa-sliders"></i>
+        <a href="{% url 'home:Extra' %}">
+          <h2>Extra</h2>
+        </a>
+      </li>
+    </ul>
+    <!-- Mobile Menu Starts -->
+    <nav role="navigation" class="d-block d-lg-none">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul class="list-unstyled" id="menu">
+          <li>
+            <a href="{% url 'home:home' %}"
+              ><i class="fa fa-home"></i><span>Home</span></a
+            >
+          </li>
+          <li>
+            <a href="{% url 'home:about' %}"
+              ><i class="fa fa-user"></i><span>About</span></a
+            >
+          </li>
+          <li>
+            <a href="{% url 'home:portfolio' %}"
+              ><i class="fa fa-folder-open"></i><span>Portfolio</span></a
+            >
+          </li>
+          <li>
+            <a href="{% url 'home:contact_us' %}"
+              ><i class="fa fa-envelope-open"></i><span>Contact</span></a
+            >
+          </li>
+          <li>
+            <a href="{% url 'home:blog' %}"
+              ><i class="fa fa-comments"></i><span>Blog</span></a
+            >
+          </li>
+          <li class="active">
+            <a href="{% url 'home:Extra' %}"
+              ><i class="fa fa-sliders"></i><span>Extra</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Mobile Menu Ends -->
+  </header>
+  <!-- Header Ends -->
+  <!-- Page Title Starts -->
+  <section
+    class="title-section text-left text-sm-center revealator-slideup revealator-once revealator-delay1"
+  >
+    <h1>my <span>Project Codes</span></h1>
+    <span class="title-bg">Project codes</span>
+  </section>
+  <!-- Page Title Ends -->
+  <!-- Main Content Starts -->
+
+  <style>
+    .card {
+      border-radius: 4px;
+      background: rgb(8, 7, 7);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+      transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+        0.3s box-shadow,
+        0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+      padding: 14px 80px 18px 36px;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h3 {
+      font-weight: 600;
+      color: black;
+    }
+
+    .card p {
+      font-weight: 100;
+      color: black;
+    }
+
+    .card img {
+      position: absolute;
+      top: 20px;
+      right: 15px;
+      max-height: 120px;
+    }
+
+    .card-1 {
+      background-image: url(https://ionicframework.com/img/getting-started/ionic-native-card.png);
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: 80px;
+    }
+
+    .card-2 {
+      background-image: url(https://ionicframework.com/img/getting-started/components-card.png);
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: 80px;
+    }
+
+    .card-3 {
+      background-image: url(https://ionicframework.com/img/getting-started/theming-card.png);
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: 80px;
+    }
+
+    @media (max-width: 990px) {
+      .card {
+        margin: 20px;
+      }
+    }
+  </style>
+
+  <section
+    class="main-content revealator-slideup revealator-once revealator-delay1"
+  >
+    <div class="container">
+      <div class="text-left text-sm-center hometag revealator-delay1">
+        <i class="fa fa-sign-out"></i> <span><a class="hello-msg" href="{% url 'userprofile:logout' %}"> Logout</a></span>
+        </div>
+      <div class="row">
+        {% for i in data %}
+            <div class="col-12 col-lg-6" style="margin-bottom: 30px;">
+              <div class="card card-1">
+                <a href="/projectcodedetails/{{i.new_slug}}" style="text-decoration: none;">
+                <h3>{{ i.name }}</h3>
+                <p>
+                  {{ i.body | slice:":180"  }}
+                </p>
+              </a>
+              </div>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}
+</body>

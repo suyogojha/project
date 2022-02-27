@@ -1,0 +1,148 @@
+
+{% extends 'base.html' %} {% load static %} {% block blog %}
+
+<body class="blog">
+
+<header class="header" id="navbar-collapse-toggle">
+    <ul
+    class="
+      icon-menu
+      d-none d-lg-block
+      revealator-slideup revealator-once revealator-delay1
+    "
+  >
+    <li class="icon-box">
+      <i class="fa fa-home"></i>
+      <a href="{% url 'home:home' %}">
+        <h2>Home</h2>
+      </a>
+    </li>
+    <li class="icon-box ">
+      <i class="fa fa-user"></i>
+      <a href="{% url 'home:about' %}">
+        <h2>About</h2>
+      </a>
+    </li>
+    <li class="icon-box">
+      <i class="fa fa-briefcase"></i>
+      <a href="{% url 'home:portfolio' %}">
+        <h2>Portfolio</h2>
+      </a>
+    </li>
+    <li class="icon-box">
+      <i class="fa fa-envelope-open"></i>
+      <a href="{% url 'home:contact_us' %}">
+        <h2>Contact</h2>
+      </a>
+    </li>
+    <li class="icon-box active">
+      <i class="fa fa-comments"></i>
+      <a href="{% url 'home:blog' %}">
+        <h2>Blog</h2>
+      </a>
+    </li>
+    <li class="icon-box">
+      <i class="fa fa-sliders"></i>
+      <a href="{% url 'home:Extra' %}">
+        <h2>Extra</h2>
+      </a>
+    </li>
+
+
+  </ul>
+  <!-- Mobile Menu Starts -->
+  <nav role="navigation" class="d-block d-lg-none">
+    <div id="menuToggle">
+      <input type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul class="list-unstyled" id="menu">
+        <li>
+          <a href="{% url 'home:home' %}"
+            ><i class="fa fa-home"></i><span>Home</span></a
+          >
+        </li>
+        <li >
+          <a href="{% url 'home:about' %}"
+            ><i class="fa fa-user"></i><span>About</span></a
+          >
+        </li>
+        <li>
+          <a href="{% url 'home:portfolio' %}"
+            ><i class="fa fa-folder-open"></i><span>Portfolio</span></a
+          >
+        </li>
+        <li>
+          <a href="{% url 'home:contact_us' %}"
+            ><i class="fa fa-envelope-open"></i><span>Contact</span></a
+          >
+        </li>
+        <li class="active">
+          <a href="{% url 'home:blog' %}"
+            ><i class="fa fa-comments"></i><span>Blog</span></a
+          >
+        </li>
+        <li>
+          <a href="{% url 'home:Extra' %}"
+            ><i class="fa fa-sliders"></i><span>Extra</span></a
+          >
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+  <!-- Mobile Menu Ends -->
+
+</header>
+<!-- Header Ends -->
+<!-- Page Title Starts -->
+<section class="title-section text-left text-sm-center revealator-slideup revealator-once revealator-delay1">
+    <h1>my <span>blog</span></h1>
+    <span class="title-bg">posts</span>
+</section>
+<!-- Page Title Ends -->
+<!-- Main Content Starts -->
+
+
+<section class="main-content revealator-slideup revealator-once revealator-delay1">
+    <div class="container">
+        <!-- Articles Starts -->
+        <div class="row">
+            {% for i in data %}
+            <!-- Article Starts -->
+            <div class="col-12 col-md-6 col-lg-6 col-xl-4 mb-30">
+                <article class="post-container">
+                    <div class="post-thumb">
+                        <a href="/blog_post/{{i.new_slug}}" class="d-block position-relative overflow-hidden">
+                          {% if i.image %}
+                            <img src="{{ i.image.url }}" class="img-fluid" alt="Blog Post">
+                          {% else %}
+                          <img src="/static/img/download.png" class="img-fluid" alt="Blog Post">
+                          {% endif %}
+                        </a>
+                    </div>
+                    <div class="post-content">
+                        <div class="entry-header">
+                            <h3><a href="/blog_post/{{i.new_slug}}">{{i.title}}</a></h3>
+                        </div>
+                        <div class="entry-content open-sans-font">
+                            <p>{{i.content | slice:":80" }} 
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+
+            <!-- Article Ends -->
+ 
+
+        </div>
+        <!-- Articles Ends -->
+    </div>
+
+</section>
+
+
+{% endblock %}

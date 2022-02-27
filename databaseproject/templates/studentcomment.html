@@ -1,0 +1,171 @@
+{% extends 'base.html' %} {% load static %} {% block uploadassignment %}
+
+
+<body class="blog">
+  <header class="header" id="navbar-collapse-toggle">
+    <ul class="icon-menu d-none d-lg-block revealator-slideup revealator-once revealator-delay1">
+      <li class="icon-box">
+        <i class="fa fa-home"></i>
+        <a href="{% url 'home:home' %}">
+          <h2>Home</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-user"></i>
+        <a href="{% url 'home:about' %}">
+          <h2>About</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-briefcase"></i>
+        <a href="{% url 'home:portfolio' %}">
+          <h2>Portfolio</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-envelope-open"></i>
+        <a href="{% url 'home:contact_us' %}">
+          <h2>Contact</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-comments"></i>
+        <a href="{% url 'home:blog' %}">
+          <h2>Blog</h2>
+        </a>
+      </li>
+      <li class="icon-box active">
+        <i class="fa fa-sliders"></i>
+        <a href="{% url 'home:Extra' %}">
+          <h2>Extra</h2>
+        </a>
+      </li>
+    </ul>
+    <!-- Mobile Menu Starts -->
+    <nav role="navigation" class="d-block d-lg-none">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul class="list-unstyled" id="menu">
+          <li>
+            <a href="{% url 'home:home' %}"><i class="fa fa-home"></i><span>Home</span></a>
+          </li>
+          <li>
+            <a href="{% url 'home:about' %}"><i class="fa fa-user"></i><span>About</span></a>
+          </li>
+          <li>
+            <a href="{% url 'home:portfolio' %}"><i class="fa fa-folder-open"></i><span>Portfolio</span></a>
+          </li>
+          <li>
+            <a href="{% url 'home:contact_us' %}"><i class="fa fa-envelope-open"></i><span>Contact</span></a>
+          </li>
+          <li>
+            <a href="{% url 'home:blog' %}"><i class="fa fa-comments"></i><span>Blog</span></a>
+          </li>
+          <li class="active">
+            <a href="{% url 'home:Extra' %}"><i class="fa fa-sliders"></i><span>Extra</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Mobile Menu Ends -->
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+  <section class="title-section text-left text-sm-center revealator-slideup revealator-once revealator-delay1">
+    <h1>Student <span>Comments</span></h1>
+    <span class="title-bg">Comments</span>
+  </section>
+
+
+
+  <section class="main-content revealator-slideup revealator-once revealator-delay1">
+    <div class="container">
+      <!-- Articles Starts -->
+      <div class="row">
+        <div class="col-12">
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+                <a class="navbar-brand" href="{% url 'databaseproject:databaseproject' %}">Dashboard</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="{% url 'databaseproject:modules' %}">Modules</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Assignments
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'databaseproject:assignment' %}">Post Assignment</a>
+                        <a class="dropdown-item" href="{% url 'databaseproject:assignmentreceived' %}">Received Assignment</a>
+                        <a class="dropdown-item" href="{% url 'databaseproject:studentcomment' %}">Student Comment</a>
+    
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'userprofile:logout' %}">Logout</a>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+              </nav> 
+        </div>
+        <div  class="col-12" style="margin-top: 20px;">
+              <h1 style="text-align: center; font-size:20px; color:aquamarine">Student Comments</h1>
+
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Message</th>
+
+                  </tr>
+                </thead>
+                {% for i in data %}
+                <tbody>
+                  <tr>
+                    <th scope="row">{{ forloop.counter }}</th>                    
+                    <td>{{ i.Name }}</td>
+                    <td>{{ i.subject }}</td>
+                    <td>{{ i.message }}</td>
+                  </tr>
+                </tbody>
+                {% endfor %}
+              </table>
+
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+  </section>
+
+
+
+
+
+  {% endblock %}
+</body>

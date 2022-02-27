@@ -1,0 +1,207 @@
+
+
+{% extends 'base.html' %} {% load static %} {% block TheUser %}
+
+
+<body class="blog">
+  <header class="header" id="navbar-collapse-toggle">
+    <ul
+      class="icon-menu d-none d-lg-block revealator-slideup revealator-once revealator-delay1"
+    >
+      <li class="icon-box">
+        <i class="fa fa-home"></i>
+        <a href="{% url 'home:home' %}">
+          <h2>Home</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-user"></i>
+        <a href="{% url 'home:about' %}">
+          <h2>About</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-briefcase"></i>
+        <a href="{% url 'home:portfolio' %}">
+          <h2>Portfolio</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-envelope-open"></i>
+        <a href="{% url 'home:contact_us' %}">
+          <h2>Contact</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-comments"></i>
+        <a href="{% url 'home:blog' %}">
+          <h2>Blog</h2>
+        </a>
+      </li>
+      <li class="icon-box active">
+        <i class="fa fa-sliders"></i>
+        <a href="{% url 'home:Extra' %}">
+          <h2>Extra</h2>
+        </a>
+      </li>
+    </ul>
+    <!-- Mobile Menu Starts -->
+    <nav role="navigation" class="d-block d-lg-none">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul class="list-unstyled" id="menu">
+          <li>
+            <a href="{% url 'home:home' %}"
+              ><i class="fa fa-home"></i><span>Home</span></a
+            >
+          </li>
+          <li>
+            <a href="{% url 'home:about' %}"
+              ><i class="fa fa-user"></i><span>About</span></a
+            >
+          </li>
+          <li>
+            <a href="{% url 'home:portfolio' %}"
+              ><i class="fa fa-folder-open"></i><span>Portfolio</span></a
+            >
+          </li>
+          <li>
+            <a href="{% url 'home:contact_us' %}"
+              ><i class="fa fa-envelope-open"></i><span>Contact</span></a
+            >
+          </li>
+          <li>
+            <a href="{% url 'home:blog' %}"
+              ><i class="fa fa-comments"></i><span>Blog</span></a
+            >
+          </li>
+          <li class="active">
+            <a href="{% url 'home:Extra' %}"
+              ><i class="fa fa-sliders"></i><span>Extra</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Mobile Menu Ends -->
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+  <section
+    class="title-section text-left text-sm-center revealator-slideup revealator-once revealator-delay1"
+  >
+    <h1>The <span>Users</span></h1>
+    <span class="title-bg">Users</span>
+  </section>
+
+  <!-- Page Title Ends -->
+  <!-- Main Content Starts -->
+
+<style>
+
+
+  .wrapper {
+    position: relative;
+    max-width: 1298px;
+    height: auto;
+    margin: 2em auto 0 auto;
+    background: transparent url("https://www.dropbox.com/s/qq5n8w99q40wtrg/wood-fence.png?raw=1") no-repeat center top 24em;
+  }
+  
+  .box {
+    max-width: 70%;
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 1em 1em;
+    text-align: center;
+    background: transparent url("https://www.dropbox.com/s/ft9vhk6720t1k86/dog-family-colored-doodle-drawing.jpg?raw=1") no-repeat top 10em center;
+  }
+  
+  h1 {
+    margin: 0 0 1rem 0;
+    font-size: 8em;
+    text-shadow: 0 0 6px #8b4d1a;
+  }
+  
+  p {
+    margin-bottom: 0.5em;
+    font-size: 1.75em;
+    color: #1aea1a;
+  }
+  
+  p:first-of-type {
+    margin-top: 19em;
+    text-shadow: none;
+  }
+  
+  p > a {
+    border-bottom: 1px dashed #837256;
+    font-style: italic;
+    text-decoration: none;
+    color: #837256;
+  }
+  
+  p > a:hover { text-shadow: 0 0 3px #8b4d1a; }
+  
+  p img { vertical-align: bottom; }
+  
+  @media screen and (max-width: 600px) {
+    .wrapper {
+      background-size: 300px 114px;
+      background-position: center top 22em;
+      }
+  
+    .box {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0;
+      background-size: 320px 185px;
+    }
+  
+    p:first-of-type { margin-top: 12em; }
+  }
+</style>
+
+
+
+
+    <section class="main-content revealator-slideup revealator-once revealator-delay1">
+    <div class="container">
+      <div class="text-left text-sm-center hometag revealator-delay1">
+        <i class="fa fa-sign-out"></i> <span><a class="hello-msg" href="{% url 'userprofile:logout' %}"> Logout</a></span>
+        </div>
+      <!-- Articles Starts -->
+      <div class="row">
+        <div class="col-12">
+          <div class="wrapper">
+            <div class="box">
+            <h1>403 ERROR</h1>
+            <p>Sorry, You are not authorized to view this page you need Admin permission to view the page. Thank You!</p>
+            <p><a style="text-decoration: none;"  href="{% url 'home:contact_us' %}">Contact To the Admin.</a></p>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+</section>
+
+
+
+
+
+  {% endblock %}
+</body>

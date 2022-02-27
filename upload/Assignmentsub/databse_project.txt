@@ -1,0 +1,24 @@
+Application : 
+Application Requirements
+                - Login (Faculty, Student)
+                Faculty
+                - Dashboard , Show modules, Show Assignments
+                - Section, Module name
+                - Post Assignments (Scenario)
+                - View Assignments
+                - Post Comments/feedback
+                - Final Grade
+                Student
+                - Dashboard, Show section, module name
+                - Assignment view, Upload assignment
+                - Comments
+                - Final Grade
+Database Operations:
+                - Schema (Normalization)
+                - UI/All the queries (Optimization technique)
+                - Join Query
+                - Views
+                Lo4
+                - Login Permissions
+                - User roles
+                - Back up

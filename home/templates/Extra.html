@@ -1,0 +1,286 @@
+
+
+{% extends 'base.html' %} 
+
+{% load static %}
+
+
+{% block Extra %}
+
+
+
+<body class="portfolio">
+
+<!-- Live Style Switcher Ends - demo only -->
+<!-- Header Starts -->
+<header class="header" id="navbar-collapse-toggle">
+    <!-- Fixed Navigation Starts -->
+    <ul
+      class="
+        icon-menu
+        d-none d-lg-block
+        revealator-slideup revealator-once revealator-delay1
+      "
+    >
+      <li class="icon-box ">
+        <i class="fa fa-home"></i>
+        <a href="{% url 'home:home' %}">
+          <h2>Home</h2>
+        </a>
+      </li>
+      <li class="icon-box">
+        <i class="fa fa-user"></i>
+        <a href="{% url 'home:about' %}">
+          <h2>About</h2>
+        </a>
+      </li>
+      <li class="icon-box ">
+        <i class="fa fa-briefcase"></i>
+        <a href="{% url 'home:portfolio' %}">
+          <h2>Portfolio</h2>
+        </a>
+      </li>
+        <li class="icon-box">
+            <i class="fa fa-envelope-open"></i>
+            <a href="{% url 'home:contact_us' %}">
+                <h2>Contact</h2>
+            </a>
+        </li>
+        <li class="icon-box">
+            <i class="fa fa-comments"></i>
+            <a href="{% url 'home:blog' %}">
+                <h2>Blog</h2>
+            </a>
+        </li>
+        <li class="icon-box active">
+            <i class="fa fa-sliders"></i>
+            <a href="{% url 'home:Extra' %}">
+              <h2>Extra</h2>
+            </a>
+          </li>
+    </ul>
+    <!-- Fixed Navigation Ends -->
+    <!-- Mobile Menu Starts -->
+    <nav role="navigation" class="d-block d-lg-none">
+        <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul class="list-unstyled" id="menu">
+                <li><a href="{% url 'home:home' %}"><i class="fa fa-home"></i><span>Home</span></a></li>
+                <li><a href="{% url 'home:about' %}"><i class="fa fa-user"></i><span>About</span></a></li>
+                <li><a href="{% url 'home:portfolio' %}"><i class="fa fa-folder-open"></i><span>Portfolio</span></a></li>
+                <li><a href="{% url 'home:contact_us' %}"><i class="fa fa-envelope-open"></i><span>Contact</span></a></li>
+                <li><a href="{% url 'home:blog' %}"><i class="fa fa-comments"></i><span>Blog</span></a></li>
+                <li class="active">
+                    <a href="{% url 'home:Extra' %}"
+                      ><i class="fa fa-sliders"></i><span>Extra</span></a
+                    >
+                  </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Mobile Menu Ends -->
+</header>
+<!-- Header Ends -->
+<!-- Page Title Starts -->
+<section class="title-section text-left text-sm-center revealator-slideup revealator-once revealator-delay1">
+    <h1>my <span>Extra</span></h1>
+    <span class="title-bg">Extra Things</span>
+</section>
+
+
+
+
+<style>
+
+        .uli {
+          position: relative;
+        }
+        .uli .lia {
+          list-style: none;
+          text-align: center;
+        }
+        .uli .lia a {
+          color: lightgoldenrodyellow;
+          text-decoration: none;
+          font-size: 2em;
+          padding: 5px 20px;
+          display: inline-flex;
+          font-weight: 600;
+          transition: 0.5s;
+        }
+        .uli:hover .lia a {
+          color: #0002;
+          font-weight: 600;
+        }
+        .uli .lia:hover a {
+          color: rgb(18, 38, 214);
+          background: rgb(229, 245, 90);
+          border: 3px solid red;
+          border-radius: 20px;
+        }
+        .uli .lia a:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 40%;
+          transform: translate(-50%, -50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 5em;
+          color: rgba(0, 0, 0, 0.1);
+          border-radius: 50%;
+          z-index: -1;
+          opacity: 0;
+          font-weight: 900;
+          font-size: 70px;
+          text-transform: uppercase;
+          letter-spacing: 500px;
+          transition: letter-spacing 0.5s, left 0.5s;
+        }
+        .uli .lia a:hover:before {
+          content: attr(data-text);
+          opacity: 1;
+          left: 50%;
+          letter-spacing: 10px;
+          width: 1200px;
+          height: 1800px;
+        }
+        .uli .lia:nth-child(6n + 1) a:before {
+          background: #81ecec;
+        }
+        .uli .lia:nth-child(6n + 2) a:before {
+          background: #ff7675;
+        }
+        .uli .lia:nth-child(6n + 3) a:before {
+          background: #55efc4;
+        }
+        .uli .lia:nth-child(6n + 4) a:before {
+          background: #a29bfe;
+        }
+        .uli .lia:nth-child(6n + 5) a:before {
+          background: #fd79a8;
+        }
+        .uli .lia:nth-child(6n + 6) a:before {
+          background: #ffeaa7;
+        }
+
+
+        .ukk{
+          position:absolute;
+          top:50%;
+          left:40%;
+          transform:translate(-50%,-50%);
+          margin:0;
+          padding:0;
+          display:flex;
+          
+        }
+        .ukk .ukl{
+          list-style:none;
+          width:40px;
+          height:40px;
+          background:#fff;
+          border-radius:50%;
+          animation:grow 1.6s ease-in-out infinite;
+        }
+          @keyframes grow
+          {
+            0% , 40% , 100%
+            {
+              transform:scale(0.2);
+            }
+            20%{
+               transform:scale(1);
+        
+            }
+            40%{
+              transform:scale(0.2);
+       
+           }
+          }
+        
+        .ukk .ukl:nth-child(1){
+          animation-delay:-1.4s;
+          background:#ffff00;
+          box-shadow:0 0 50px #ffff00;
+          
+        }
+        .ukk .ukl:nth-child(2){
+          animation-delay:-1.2s;
+          background:#76ff03;
+          box-shadow:0 0 50px #76ff03;
+          
+        }
+        .ukk .ukl:nth-child(3){
+          animation-delay:-1s;
+          background:#f06292;
+          box-shadow:0 0 50px #f06292;
+          
+        }
+        .ukk .ukl:nth-child(4){
+          animation-delay:-0.8s;
+          background:#4fc3f7;
+          box-shadow:0 0 50px #4fc3f7;
+          
+        }
+        .ukk .ukl:nth-child(5){
+          animation-delay:-0.6s;
+          background:#ba68c8;
+          box-shadow:0 0 50px #ba68c8;
+          
+        }
+        .ukk .ukl:nth-child(6){
+          animation-delay:-0.4s;
+          background:#f57c00;
+          box-shadow:0 0 50px #f57c00;
+          
+        }
+        .ukk .ukl:nth-child(7){
+          animation-delay:-0.2s;
+          background:#e0f80a;
+          box-shadow:0 0 50px #e7eb11;         
+        }
+        
+        </style>
+
+
+<section class="main-content revealator-slideup revealator-once revealator-delay1">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <ul class="uli" style="margin-left: 60px;">
+                    <li class="lia"><a href="{% url 'Extra:certificates' %}" data-text="Certificates">Certificates</a></li>
+                    <li class="lia"><a href="{% url 'Extra:projectcode' %}" data-text="Project Codes">Project Codes</a></li>
+                    <li class="lia"><a href="{% url 'Extra:videosproject' %}" data-text="Project Videos">Project Videos</a></li>
+                    <li class="lia"><a href="{% url 'Extra:APIss' %}" data-text="Work List">API</a></li>
+                    <li class="lia"><a href="{% url 'Extra:Team' %}" data-text="Team">Team</a></li>
+                    <li class="lia"><a href="{% url 'databaseproject:databaseproject' %}" data-text="databaseproject">Database Project</a></li>
+              </ul>
+             </div>  
+             <div class="col-12 col-lg-6">
+              <div>
+                <ul class="ukk">
+                  <li class="ukl"></li>
+                  <li class="ukl"></li>
+                  <li class="ukl"></li>
+                  <li class="ukl"></li>
+                  <li class="ukl"></li>
+                  <li class="ukl"></li>
+                  <li class="ukl"></li>
+                </ul>
+              </div>
+            </div> 
+         </div>  
+ 
+    </div>    
+</section>
+
+{% endblock %}
+
+
+
+
